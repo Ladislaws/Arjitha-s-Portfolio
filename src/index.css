@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", "Georgia", serif;
+  --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+  
+  --color-navy: #051622;
+  --color-navy-light: #0A1E2D;
+  --color-cream: #F9F7F2;
+  --color-gold: #DEB887;
+  --color-gold-muted: #C5A059;
+}
+
+@layer base {
+  body {
+    @apply bg-navy text-cream font-sans;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+.pill {
+  @apply px-3 py-1 border border-gold/30 rounded-full text-[10px] uppercase tracking-widest cursor-pointer transition-all duration-300;
+}
+
+.pill-active {
+  @apply bg-gold text-navy border-gold;
+}
+
+.luxury-underline {
+  @apply relative inline-block;
+}
+
+.luxury-underline::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-0 h-[1px] bg-gold transition-all duration-500 ease-in-out;
+}
+
+.luxury-underline:hover::after {
+  @apply w-full;
+}
+
+.stat-box {
+  @apply border-l border-gold pl-4 py-2;
+}
+
+.project-card {
+  @apply relative bg-navy-light border border-white/5 overflow-hidden transition-all duration-300 hover:border-gold;
+}
+
+/* Custom scrollbar for premium feel */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-cream;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gold/30 rounded-full hover:bg-gold/50 transition-colors;
+}
